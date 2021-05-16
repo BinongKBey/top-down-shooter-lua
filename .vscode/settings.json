@@ -1,0 +1,11 @@
+{
+    "Lua.diagnostics.globals": [
+        "canShoot",
+        "canShootTimerMax",
+        "love",
+        "bulletImg"
+    ],
+    "Lua.diagnostics.disable": [
+        "lowercase-global"
+    ]
+}
