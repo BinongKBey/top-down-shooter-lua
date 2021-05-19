@@ -39,8 +39,9 @@ function love.load()
     player.img = love.graphics.newImage('assets/plane.png')
     enemyImg = love.graphics.newImage('assets/enemy.png')
     bulletImg = love.graphics.newImage('assets/bullet.png')
-    sound = love.audio.newSource("assets/bg.mp3", "stream")
-    love.audio.play(sound)
+    sound = love.audio.newSource("assets/bg.mp3", "static")
+    sound:setLooping(true)
+    sound:play();
 end
 
 -- Updating
@@ -87,7 +88,9 @@ function love.update(dt)
             if CheckCollision(enemy.x, enemy.y, enemy.img:getWidth(), enemy.img:getHeight(), bullet.x, bullet.y, bullet.img:getWidth(), bullet.img:getHeight()) then
                 table.remove(bullets, j)
                 table.remove(enemies, i)
-                score = score + 1
+                if isAlive then
+                    score = score + 1
+                end
             end
         end
     
@@ -155,6 +158,8 @@ function love.update(dt)
 end
 
 function love.draw()
+    love.graphics.print("Score: ", 30, 20)
+    love.graphics.print(score, 90, 20)
     if not start then
         love.graphics.draw(player.img, love.graphics:getWidth()/2-player.img:getWidth()/2, (love.graphics:getHeight()/2-20-player.img:getHeight()))
         love.graphics.print("Press 'Spacebar' to Start Game", love.graphics:getWidth()/2-100, love.graphics:getHeight()/2-10)
