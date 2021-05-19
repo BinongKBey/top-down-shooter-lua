@@ -49,7 +49,7 @@ function love.update(dt)
     -- Enemy
     -- Time out enemy creation
     createEnemyTimer = createEnemyTimer - (1 * dt)
-    if createEnemyTimer < 0 then
+    if start and createEnemyTimer < 0 then
         createEnemyTimer = createEnemyTimerMax
 
         -- Create an enemy
