@@ -163,6 +163,7 @@ function love.draw()
     if not start then
         love.graphics.draw(player.img, love.graphics:getWidth()/2-player.img:getWidth()/2, (love.graphics:getHeight()/2-20-player.img:getHeight()))
         love.graphics.print("Press 'Spacebar' to Start Game", love.graphics:getWidth()/2-100, love.graphics:getHeight()/2-10)
+        love.graphics.print("Music: Big Boi Pants by Shane Ivers - https://www.silvermansound.com", 25, love.graphics:getHeight()/2+70)
     else
         if isAlive then
             love.graphics.draw(player.img, player.x, player.y)
